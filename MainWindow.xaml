@@ -1,0 +1,134 @@
+﻿<Window x:Class="QueueingSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QueueingSystem"
+        mc:Ignorable="d"
+        Title="Лабораторная работа #СМО." Height="474" Width="784" Loaded="Window_Loader" Background="LightBlue">
+    <Grid Margin="0,0,0,0" Focusable="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+           
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" Height="2" Background="Black"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" Height="2" Background="Black"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="4" Height="2" Background="Black"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6" Height="2" Background="Black"></TextBlock>
+<!-- Панель касс-->        
+        <WrapPanel Grid.Column="0" Grid.Row="1">
+            <Label Margin="5" FontSize="16" FontWeight="Black" Content="1"/>
+            <TextBlock Name="Machine1" Background="Green" Margin="5" Height="20" Width="100" Padding="20,0,0,0" FontWeight="Black" Text="-"/>
+            <Label Margin="5" FontSize="16" FontWeight="Black" Content="2"/>
+            <TextBlock Name="Machine2" Background="Green" Height="20" Width="100" Margin="5" Padding="20,0,0,0" FontWeight="Black" Text="-"/>
+            <Label Margin="5" FontSize="16" FontWeight="Black" Content="3"/>
+            <TextBlock Name="Machine3"  Background="Green" Margin="5" Height="20" Width="100" Padding="20,0,0,0" FontWeight="Black" Text="-"/>
+            <Label Margin="5" FontSize="16" FontWeight="Black" Content="4"/>
+            <TextBlock Name="Machine4"  Background="Green" Margin="5" Height="20" Width="100" Padding="20,0,0,0" FontWeight="Black" Text="-"/>
+            <Label Margin="5" FontSize="16" FontWeight="Black" Content="5"/>
+            <TextBlock Name="Machine5" Background="Green" Margin="5" Height="20" Width="100" Padding="20,0,0,0" FontWeight="Black" Text="-"/>
+        </WrapPanel>
+        <!-- Панель выполненных заявок-->
+        <WrapPanel Grid.Column="0" Grid.Row="3">
+            <Label FontSize="14" FontWeight="Black">Выполненные заявки:</Label>
+            <TextBlock Name="AllComplete" Height="15" Width="40" Background="White" Text="0"/>
+            <Label FontSize="14">XCHG:</Label>
+            <TextBlock Name="XchgComplete" Height="15" Width="40" Background="White" Text="0"/>
+            <Label FontSize="14">CARD:</Label>
+            <TextBlock Name="CardComplete" Height="15" Width="40" Background="White" Text="0"/>
+            <Label FontSize="14">CRED:</Label>
+            <TextBlock Name="CredComplete" Height="15" Width="40" Background="White" Text="0"/>
+            <Label FontSize="14">ACNT:</Label>
+            <TextBlock Name="AcntComplete"  Height="15" Width="40" Background="White" Text="0"/>
+        </WrapPanel>
+        
+        <DockPanel Grid.Column="0" Grid.Row="5" Height="250">
+            <!--Вывод актуальных заявок-->
+            <ScrollViewer Name="scroller">
+                <TextBlock Name="TaskText" DockPanel.Dock="left" Background="White" Width="500"/>
+            </ScrollViewer>
+                    <!-- Панель невыполненных заявок-->
+            <StackPanel Orientation="Vertical">
+                <StackPanel>
+                    <Button Height="20" Name="ClearForm" Content="Очистить окно" Click="Button_Click_Clear"/>
+                    <Button Height="20" Name="MissingRequests" Content="Вывести пропущенные заявки" Click="Button_Click_Miss"/>
+                    <Button Height="20" Name="CompletedRequests" Content="Вывести выполненные заявки" Click="Button_Click_Complete"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Margin="0,0,0,0" Content="Время выполнения XCHG, мин."/>
+                    <TextBox Name="timeXCHG" Text="1" Grid.Column="1" Grid.Row="0" Height="20" Width="60"/>
+                    <Label Grid.Column="0" Grid.Row="1" Margin="0,0,0,0" Content="Время выполнения CARD, мин."/>
+                    <TextBox Name="timeCARD" Text="2" Grid.Column="1" Grid.Row="1"  Height="20" Width="60"/>
+                    <Label Grid.Column="0" Grid.Row="2" Margin="0,0,0,0" Content="Время выполнения CRED, мин."/>
+                    <TextBox Name="timeCRED" Text="3" Grid.Column="1" Grid.Row="2"  Height="20" Width="60"/>
+                    <Label Grid.Column="0" Grid.Row="3" Margin="0,0,0,0" Content="Время выполнения ACNT, мин."/>
+                    <TextBox Name="timeACNT" Text="4" Grid.Column="1" Grid.Row="3" Height="20" Width="60"/>
+                    <Label Grid.Column="0" Grid.Row="4" Margin="0,0,0,0" Content="Временной интервал, мин."/>
+                    <TextBox Name="TimeInterval" Text="20" Grid.Column="1" Grid.Row="4" Height="20" Width="60"/>
+                    <Label Grid.Column="0" Grid.Row="5" Content="Количество заявок, шт."/>
+                    <TextBox Name="Quantity" Text="100" Grid.Column="1" Grid.Row="5" Height="20" Width="60"/>
+                    <Label Grid.Column="0" Grid.Row="6" Content="Интервал таймера, сек."/>
+                    <TextBox Name="TimerTime" Text="0,5" Grid.Column="1" Grid.Row="6" Height="20" Width="60"/>
+                </Grid>
+            </StackPanel>
+        </DockPanel>
+        <!-- Панель управления-->
+        <WrapPanel Grid.Column="0" Grid.Row="7">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"></ColumnDefinition>
+                    <ColumnDefinition Width="250"></ColumnDefinition>
+                    <ColumnDefinition Width="240"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <WrapPanel>
+                    <StackPanel Grid.Column="0" Orientation="Vertical">
+                        <TextBlock>
+                            <Label Content="Заявок в очереди :"/>
+                            <Label Name="QueueRequest"/>
+                        </TextBlock>
+                        
+                    </StackPanel>
+                </WrapPanel>
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Margin="0,0,0,0" Content="Текущее время :"/>
+                        <Label FontSize="20" FontStyle="Italic" Name="CurrentTime"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Margin="0,0,0,0" Content="Количество заявок в системе :"/>
+                        <Label Name="one"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Margin="0,0,0,0" Content="null :"/>
+                        <Label Name="two"/>
+                    </StackPanel>
+                </StackPanel>
+                <WrapPanel Grid.Column="2" Margin="5,5,5,5" Orientation="Horizontal">
+                    <Button x:Name="Generate" Height="30" Width="70" Content="Генерация" Click="Button_Click_Generate"/>
+                    <Button x:Name="Start" Height="30" Width="70" Content="Старт" Click="Button_Click_Start"/>
+                    <Button x:Name="Stop" Height="30" Width="70" Content="Стоп" Click="Stop_Click"/>
+                </WrapPanel>
+            </Grid>
+        </WrapPanel>
+    </Grid>
+</Window>

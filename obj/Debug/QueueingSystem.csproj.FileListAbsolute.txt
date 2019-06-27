@@ -1,0 +1,15 @@
+D:\labs\struct\QueueingSystem\QueueingSystem\bin\Debug\QueueingSystem.exe.config
+D:\labs\struct\QueueingSystem\QueueingSystem\bin\Debug\QueueingSystem.exe
+D:\labs\struct\QueueingSystem\QueueingSystem\bin\Debug\QueueingSystem.pdb
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\QueueingSystem.csprojAssemblyReference.cache
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\MainWindow.g.cs
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\App.g.cs
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\QueueingSystem_MarkupCompile.cache
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\QueueingSystem_MarkupCompile.lref
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\MainWindow.baml
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\QueueingSystem.g.resources
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\QueueingSystem.Properties.Resources.resources
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\QueueingSystem.csproj.GenerateResource.cache
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\QueueingSystem.csproj.CoreCompileInputs.cache
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\QueueingSystem.exe
+D:\labs\struct\QueueingSystem\QueueingSystem\obj\Debug\QueueingSystem.pdb
